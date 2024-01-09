@@ -1,13 +1,12 @@
-const User_credential = require("../models/user_credential")
-const User_document = require("../models/user_document")
-const User_profile = require("../models/user_profile")
+
+const User = require("../models/user")
 
 const user = app => {
 
     app.get('/user/add' , async (req,res) => {
 
         //create user profile
-        const user_profile = new User_profile({
+        const user_profile = new User({
             user_profile_id : 1,
             first_name : 'Fajar',
             last_name : 'Riza Fauzi',

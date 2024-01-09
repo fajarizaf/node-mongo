@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const UserSchema = new schema({
-    user_profile_id:{
-        type:Number,
-        required:true
+    user_id:{
+        type: 'ObjectId',
     },
     first_name:{
         type:String,
@@ -38,6 +37,40 @@ const UserSchema = new schema({
         type:String,
         required:true
     },
+    credential: {
+        user_login:{
+            type:String,
+            required:true
+        },
+        user_password:{
+            type:String,
+            required:true
+        },
+        mobile_phone:{
+            type:String,
+            required:true
+        },
+        is_verified:{
+            type:Number,
+            required:true
+        },
+        is_active:{
+            type:Number,
+            required:true
+        },
+        verified_code:{
+            type:String,
+            required:false
+        },
+        access_token:{
+            type:String,
+            required:false
+        },
+        statusid:{
+            type:Number,
+            required:true
+        },
+    },
     created_by:{
         type:Number,
         required:true
@@ -56,4 +89,4 @@ const UserSchema = new schema({
     }
 });
 
-module.exports = user_profile = mongoose.model("user_profile",UserSchema);
+module.exports = user = mongoose.model("user",UserSchema);
